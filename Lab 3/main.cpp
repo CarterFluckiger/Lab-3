@@ -18,14 +18,14 @@ using namespace std;
    int userin2;
    int userin3;
    int userin4;
-   float mean;
+float mean;
 // The floats for the values of the userinputs that get subtracted by the mean
 float pow1;
 float pow2;
 float pow3;
 float pow4;
 
-// The floats for the values that get squared
+// The floats and ints for the values that get squared
 float mean1;
 float mean2;
 float mean3;
@@ -37,48 +37,59 @@ int input2f;
 int input3f;
 int input4f;
 
-void average(int one, int two, int three,int four);
-void calculation(int one, int two, int three,int four);
-void fileinput();
-void user();
+//floats for the float functions
+float average(int one, int two, int three,int four);
+float calculation(int one, int two, int three,int four);
+
+float fileinput();
+float user();
+float out();
+float realmean;
+float realmeanf;
 
 int main()
 {
+  //Functions being called
     user();
     average(userin1, userin2, userin3, userin4);
     calculation(userin1, userin2, userin3, userin4);
+    
+    realmean = ((pow(userin1-mean, 2))+ (pow(userin2-mean, 2)) + (pow(userin3-mean,2))+ (pow(userin4-mean, 2)))/4;
+    
+     
+    
+    
     fileinput();
     average(input1f,input2f, input3f, input4f);
     fileinput();
     calculation(input1f, input2f, input3f, input4f);
-    
-    string fileoutput ="/Users/tag1/Desktop/Lab 3/Lab 3/outMeanStd.dat";
-       ofstream outFile;
-       outFile.open(fileoutput);
-    outFile<< average(userin1, userin2, userin3, userin4);
-    
-    outFile.close();
+     realmeanf = ((pow(input1f-mean, 2))+ (pow(input2f-mean, 2)) + (pow(input3f-mean,2))+ (pow(input4f-mean, 2)))/4;
+    out();
+   
+
     
     return 0;
 }
-void fileinput()
+// Function that opens the file and takes the numbers off of it
+float fileinput()
 {
-    
-    
-    string fileinput ="/Users/tag1/Desktop/Lab 3/Lab 3/index.dat";
+    string fileinput ="/Users/tag1/Desktop/Lab 3/Lab 3/inMeanStd.dat";
     ifstream inFile;
     inFile.open(fileinput);
     inFile>>input1f>> input2f>>input3f>>input4f;
     
-}
+    inFile.close();
+    return 0;
+    }
 
-void average(int one, int two, int three, int four)
+float average(int one, int two, int three, int four)
 {
-       
+       // Gives mean and statement in program
     cout<<"Your mean is: "<< float(one + two + three + four) / 4 << endl<< endl;
+    return 0;
 }
 
-void calculation(int one, int two, int three, int four)
+float calculation(int one, int two, int three, int four)
 {
     // Statement calculates the mean
     mean = float(one + two + three + four) / 4;
@@ -100,9 +111,10 @@ void calculation(int one, int two, int three, int four)
     meanf = (mean1 + mean2 + mean3 + mean4)/ 4;
     cout<<"This is the standard deviation: ";
     cout<<  sqrt(meanf)<<endl<<endl;
-
+    return 0;
 }
-void user()
+
+float user()
 {
 // Statement for the user to know they have to put in four numbers of their choice
 cout<<"Please enter 4 integers: ";
@@ -111,4 +123,24 @@ cin>>userin1;
 cin>>userin2;
 cin>>userin3;
 cin>>userin4;
+    return 0;
+
+}
+
+// The outfile statements that put the information onto the output file
+float out()
+{
+string fileoutput ="/Users/tag1/Desktop/Lab 3/Lab 3/outMeanStd.dat";
+      ofstream outFile;
+      outFile.open(fileoutput);
+   outFile<<"Your mean for your user input is: "<< float(userin1 + userin2 + userin3 + userin4) / 4 << endl<< endl;;
+    outFile<<"This is the standard deviation of the user inputs: ";
+    outFile<< sqrt(realmean)<<endl<<endl;
+    
+    outFile<<"Your mean from the file is: "<< float(input1f + input2f + input3f + input4f)/4 << endl<< endl;
+    outFile<<"This is the standard deviation for the inputs from the file: ";
+    outFile<< sqrt(realmeanf)<< endl<< endl;
+   // All of the outputs that go onto the file
+    outFile.close();
+    return 0;
 }

@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		861B69AD233D2E0F00640382 /* index.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.dat; sourceTree = "<group>"; };
 		861B69AE233D2F1900640382 /* outMeanStd.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = outMeanStd.dat; sourceTree = "<group>"; };
+		861B69AF233D9BB200640382 /* inMeanstd.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = inMeanstd.dat; sourceTree = "<group>"; };
 		86C4D103232ABC6F00753A49 /* Lab 3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C4D106232ABC6F00753A49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +59,7 @@
 		86C4D105232ABC6F00753A49 /* Lab 3 */ = {
 			isa = PBXGroup;
 			children = (
-				861B69AD233D2E0F00640382 /* index.dat */,
+				861B69AF233D9BB200640382 /* inMeanstd.dat */,
 				861B69AE233D2F1900640382 /* outMeanStd.dat */,
 				86C4D106232ABC6F00753A49 /* main.cpp */,
 			);
